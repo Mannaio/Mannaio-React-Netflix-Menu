@@ -50,11 +50,15 @@ const Dropdown = ({title, key, items=[], multiselect = false}) => {
     }
   }, [upPress]);
 
+  // Per non selezionare Lingue Audio
+
   useEffect(() => {
     if (items.length && upPress) {
       setCursor(prevState => (prevState === 0 ? prevState + 1 : prevState));
     }
   }, [upPress]);
+
+  // Per non selezionare Sottotitoli scorrendo giu
 
   useEffect(() => {
     if (items.length && downPress) {
@@ -62,11 +66,15 @@ const Dropdown = ({title, key, items=[], multiselect = false}) => {
     }
   }, [downPress]);
 
+  // Per non selezionare Sottotitoli scorrendo su
+
   useEffect(() => {
     if (items.length && upPress) {
       setCursor(prevState => (prevState === 10 ? prevState -1 : prevState));
     }
   }, [upPress]);
+
+  // Per mantenere il track della posizione dell'elemento hovered
 
   useEffect(() => {
     if (items.length && hovered) {
